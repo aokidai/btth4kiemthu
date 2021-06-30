@@ -8,16 +8,11 @@ using OpenQA.Selenium.Chrome;
 using NUnit.Framework;
 namespace NguyenAnhHao_FunctionTest
 {
+    [TestFixture]
     class CreateValid
     {
         private IWebDriver driver;
         private string baseURL;
-
-        [TestFixture]
-        public class CreateTest
-        {
-
-        }
 
         [SetUp]
         public void SetupTest()
@@ -32,7 +27,7 @@ namespace NguyenAnhHao_FunctionTest
             driver.Quit();
         }
 
-        [TestCase("a12a12341231@gmail.com", "abcaa", "xyzhh", "111111", "mng", "Harway", "New York", "00084", "united states", "0122456789", "abcaa xyzhh")]
+        [TestCase("1824801030064@student.tdmu.edu.vn", "abc", "xyz", "111111", "mng", "Harway", "New York", "00084", "united states", "0122456789", "abcaa xyzhh")]
         public void TCCreate01(string email, string firstname, string lastname, string pass, string address, string city, string state, string postcode, string country, string phone, string expected)
         {
             driver.Navigate().GoToUrl(baseURL + "/index.php");

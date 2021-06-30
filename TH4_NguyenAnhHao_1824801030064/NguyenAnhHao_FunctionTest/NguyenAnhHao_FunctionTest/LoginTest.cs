@@ -33,12 +33,12 @@ namespace NguyenAnhHao_FunctionTest
             driver.Manage().Window.Size = new System.Drawing.Size(962, 810);
             driver.FindElement(By.LinkText("Sign in")).Click();
             driver.FindElement(By.Id("email")).Click();
-            driver.FindElement(By.Id("email")).SendKeys("1824801030186@student.tdmu.edu.vn");
+            driver.FindElement(By.Id("email")).SendKeys("1824801030064@student.tdmu.edu.vn");
             driver.FindElement(By.Id("passwd")).Click();
-            driver.FindElement(By.Id("passwd")).SendKeys("12345");
+            driver.FindElement(By.Id("passwd")).SendKeys("123456");
             driver.FindElement(By.CssSelector("#SubmitLogin > span")).Click();
             Assert.That(driver.Title, Is.EqualTo("My account - My Store"));
-            Assert.That(driver.FindElement(By.CssSelector(".account > span")).Text, Is.EqualTo("Cao An"));
+            Assert.That(driver.FindElement(By.CssSelector(".account > span")).Text, Is.EqualTo("Nguyễn Anh hào"));
             driver.FindElement(By.LinkText("Sign out")).Click();
             driver.Close();
         }
@@ -49,12 +49,12 @@ namespace NguyenAnhHao_FunctionTest
             driver.Manage().Window.Size = new System.Drawing.Size(961, 808);
             driver.FindElement(By.LinkText("Sign in")).Click();
             driver.FindElement(By.Id("email")).Click();
-            driver.FindElement(By.Id("email")).SendKeys("caoan2307@gmail.com");
+            driver.FindElement(By.Id("email")).SendKeys("abcxyyz11@gmail.com");
             driver.FindElement(By.Id("passwd")).Click();
             driver.FindElement(By.Id("passwd")).SendKeys("12345");
             driver.FindElement(By.CssSelector("#SubmitLogin > span")).Click();
             Assert.That(driver.Title, Is.EqualTo("My account - My Store"));
-            Assert.That(driver.FindElement(By.CssSelector(".account > span")).Text, Is.EqualTo("Cao An"));
+            Assert.That(driver.FindElement(By.CssSelector(".account > span")).Text, Is.EqualTo("aaaa aaaaa"));
             driver.FindElement(By.LinkText("Sign out")).Click();
             driver.Close();
         }
@@ -91,7 +91,7 @@ namespace NguyenAnhHao_FunctionTest
             driver.Manage().Window.Size = new System.Drawing.Size(961, 808);
             driver.FindElement(By.LinkText("Sign in")).Click();
             driver.FindElement(By.Id("email")).Click();
-            driver.FindElement(By.Id("email")).SendKeys("nguyenabcd@gmail.com");
+            driver.FindElement(By.Id("email")).SendKeys("hahahaha@gmail.com");
             driver.FindElement(By.Id("passwd")).Click();
             driver.FindElement(By.Id("passwd")).SendKeys("12345");
             driver.FindElement(By.CssSelector("#SubmitLogin > span")).Click();
@@ -105,7 +105,7 @@ namespace NguyenAnhHao_FunctionTest
             driver.Manage().Window.Size = new System.Drawing.Size(961, 808);
             driver.FindElement(By.LinkText("Sign in")).Click();
             driver.FindElement(By.Id("email")).Click();
-            driver.FindElement(By.Id("email")).SendKeys("1824801030186@student.tdmu.edu.vn");
+            driver.FindElement(By.Id("email")).SendKeys("1824801030064@student.tdmu.edu.vn");
             driver.FindElement(By.Id("passwd")).Click();
             driver.FindElement(By.CssSelector("#SubmitLogin > span")).Click();
             Assert.That(driver.FindElement(By.XPath("//*[@id='center_column']/div[1]/ol/li")).Text, Is.EqualTo("Password is required."));
@@ -118,9 +118,9 @@ namespace NguyenAnhHao_FunctionTest
             driver.Manage().Window.Size = new System.Drawing.Size(961, 808);
             driver.FindElement(By.LinkText("Sign in")).Click();
             driver.FindElement(By.Id("email")).Click();
-            driver.FindElement(By.Id("email")).SendKeys("1824801030186@student.tdmu.edu.vn");
+            driver.FindElement(By.Id("email")).SendKeys("1824801030064@student.tdmu.edu.vn");
             driver.FindElement(By.Id("passwd")).Click();
-            driver.FindElement(By.Id("passwd")).SendKeys("12ca");
+            driver.FindElement(By.Id("passwd")).SendKeys("1111");
             driver.FindElement(By.CssSelector("#SubmitLogin > span")).Click();
             Assert.That(driver.FindElement(By.XPath("//*[@id='center_column']/div[1]/ol/li")).Text, Is.EqualTo("Invalid password."));
             driver.Close();
@@ -132,9 +132,9 @@ namespace NguyenAnhHao_FunctionTest
             driver.Manage().Window.Size = new System.Drawing.Size(960, 808);
             driver.FindElement(By.LinkText("Sign in")).Click();
             driver.FindElement(By.Id("email")).Click();
-            driver.FindElement(By.Id("email")).SendKeys("1824801030186@student.tdmu.edu.vn");
+            driver.FindElement(By.Id("email")).SendKeys("1824801030064@student.tdmu.edu.vn");
             driver.FindElement(By.Id("passwd")).Click();
-            driver.FindElement(By.Id("passwd")).SendKeys("123456");
+            driver.FindElement(By.Id("passwd")).SendKeys("12345");
             driver.FindElement(By.CssSelector("#SubmitLogin > span")).Click();
             Assert.That(driver.FindElement(By.XPath("//*[@id='center_column']/div[1]/ol/li")).Text, Is.EqualTo("Authentication failed."));
             driver.Close();

@@ -20,24 +20,71 @@ namespace NguyenAnhHao_FunctionTest
             driver = new ChromeDriver();
             baseURL = "http://automationpractice.com";
         }
+        [Test]
+        public void TCCreate01()
+        {
+            driver.Navigate().GoToUrl(baseURL + "/index.php");
+            driver.FindElement(By.LinkText("Sign in")).Click();
+            driver.FindElement(By.Id("SubmitCreate")).Click();
+            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
+            Assert.AreEqual("Invalid email address.", driver.FindElement(By.CssSelector("ol > li")).Text);
+        }
 
+        [Test]
+        public void TCCreate02()
+        {
+            driver.Navigate().GoToUrl(baseURL + "/index.php");
+            driver.FindElement(By.LinkText("Sign in")).Click();
+            driver.FindElement(By.Id("email_create")).Click();
+            driver.FindElement(By.Id("email_create")).Clear();
+            driver.FindElement(By.Id("email_create")).SendKeys("abc");
+            driver.FindElement(By.Id("SubmitCreate")).Click();
+            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
+            Assert.AreEqual("Invalid email address.", driver.FindElement(By.CssSelector("ol > li")).Text);
+        }
+
+        [Test]
+        public void TCCreate03()
+        {
+            driver.Navigate().GoToUrl(baseURL + "/index.php");
+            driver.FindElement(By.LinkText("Sign in")).Click();
+            driver.FindElement(By.Id("email_create")).Click();
+            driver.FindElement(By.Id("email_create")).Clear();
+            driver.FindElement(By.Id("email_create")).SendKeys("123@gmail.com");
+            driver.FindElement(By.Id("SubmitCreate")).Click();
+            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
+            Assert.AreEqual("An account using this email address has already been registered. Please enter a valid password or request a new one.", driver.FindElement(By.CssSelector("ol > li")).Text);
+        }
+
+        [Test]
+        public void TCCreate04()
+        {
+            driver.Navigate().GoToUrl(baseURL + "/index.php");
+            driver.FindElement(By.LinkText("Sign in")).Click();
+            driver.FindElement(By.Id("email_create")).Click();
+            driver.FindElement(By.Id("email_create")).Clear();
+            driver.FindElement(By.Id("email_create")).SendKeys("a12a123@gmail.com");
+            driver.FindElement(By.Id("SubmitCreate")).Click();
+            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
+            Assert.AreEqual("YOUR PERSONAL INFORMATION", driver.FindElement(By.CssSelector("#account-creation_form > div:nth-child(1) > h3")).Text);
+        }
         [TearDown]
         public void TeardownTest()
         {
             driver.Quit();
         }
-        [TestCase("dat1234@gmail.com", "", "xyzhh", "111111", "mng", "Harway", "New York", "00084", "United States", "0122456789", "firstname is required.")]
-        [TestCase("dat1234@gmail.com", "abcaa", "", "111111", "mng", "Harway", "New York", "00084", "United States", "0122456789", "lastname is required.")]
-        [TestCase("dat1234@gmail.com", "abcaa", "xyzhh", "", "mng", "Harway", "New York", "00084", "United States", "0122456789", "passwd is required.")]
-        [TestCase("dat1234@gmail.com", "abcaa", "xyzhh", "1234", "mng", "Harway", "New York", "00084", "United States", "0122456789", "passwd is invalid.")]
-        [TestCase("dat1234@gmail.com", "abcaa", "xyzhh", "111111", "", "Harway", "New York", "00084", "United States", "0122456789", "address1 is required.")]
-        [TestCase("dat1234@gmail.com", "abcaa", "xyzhh", "111111", "mng", "", "New York", "00084", "United States", "0122456789", "city is required.")]
-        [TestCase("dat1234@gmail.com", "abcaa", "xyzhh", "111111", "mng", "Harway", "", "00084", "United States", "0122456789", "This country requires you to choose a State.")]
-        [TestCase("dat1234@gmail.com", "abcaa", "xyzhh", "111111", "mng", "Harway", "New York", "", "United States", "0122456789", "The Zip/Postal code you've entered is invalid. It must follow this format: 00000")]
-        [TestCase("dat1234@gmail.com", "abcaa", "xyzhh", "111111", "mng", "Harway", "New York", "00084", "United States", "", "You must register at least one phone number.")]
-        [TestCase("dat1234@gmail.com", "abcaa", "xyzhh", "111111", "mng", "Harway", "New York", "00084", "United States", "vjvhjbj", "phone_mobile is invalid.")]
+        [TestCase("1824801030064@student.tdmu.edu.vn", "", "xyz", "111111", "mng", "Harway", "New York", "00084", "United States", "0122456789", "firstname is required.")]
+        [TestCase("1824801030064@student.tdmu.edu.vn", "abc", "", "111111", "mng", "Harway", "New York", "00084", "United States", "0122456789", "lastname is required.")]
+        [TestCase("1824801030064@student.tdmu.edu.vn", "abc", "xyz", "", "mng", "Harway", "New York", "00084", "United States", "0122456789", "passwd is required.")]
+        [TestCase("1824801030064@student.tdmu.edu.vn", "abc", "xyz", "1234", "mng", "Harway", "New York", "00084", "United States", "0122456789", "passwd is invalid.")]
+        [TestCase("1824801030064@student.tdmu.edu.vn", "abc", "xyz", "111111", "", "Harway", "New York", "00084", "United States", "0122456789", "address1 is required.")]
+        [TestCase("1824801030064@student.tdmu.edu.vn", "abc", "xyz", "111111", "mng", "", "New York", "00084", "United States", "0122456789", "city is required.")]
+        [TestCase("1824801030064@student.tdmu.edu.vn", "abc", "xyz", "111111", "mng", "Harway", "", "00084", "United States", "0122456789", "This country requires you to choose a State.")]
+        [TestCase("1824801030064@student.tdmu.edu.vn", "abc", "xyz", "111111", "mng", "Harway", "New York", "", "United States", "0122456789", "The Zip/Postal code you've entered is invalid. It must follow this format: 00000")]
+        [TestCase("1824801030064@student.tdmu.edu.vn", "abc", "xyz", "111111", "mng", "Harway", "New York", "00084", "United States", "", "You must register at least one phone number.")]
+        [TestCase("1824801030064@student.tdmu.edu.vn", "abc", "xyz", "111111", "mng", "Harway", "New York", "00084", "United States", "vjvhjbj", "phone_mobile is invalid.")]
 
-        public void TCCreate01(string email, string firstname, string lastname, string pass, string address, string city, string state, string postcode, string country, string phone, string expected)
+        public void TCCreate06(string email, string firstname, string lastname, string pass, string address, string city, string state, string postcode, string country, string phone, string expected)
         {
             driver.Navigate().GoToUrl(baseURL + "/index.php");
             driver.FindElement(By.LinkText("Sign in")).Click();
